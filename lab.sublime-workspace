@@ -1,0 +1,259 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public_html/index.html",
+			"settings":
+			{
+				"buffer_size": 1719,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public_html/js/my.js",
+			"settings":
+			{
+				"buffer_size": 3976,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"boo",
+				"Bookmarks: Select Next"
+			],
+			[
+				"b",
+				"Bookmarks: Toggle"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Marvin/Dropbox/talleres/ati/ati/public_html/js/my.js",
+		"/C/Users/Marvin/Dropbox/talleres/ati/ati/public_html/index.html",
+		"/C/Users/Marvin/Dropbox/talleres/ati/ati/public_html/css/estilo.css",
+		"/C/Users/Marvin/Documents/NetBeansProjects/ati/public_html/index.html",
+		"/E/ati/public_html/index.html",
+		"/C/Users/Marvin/Desktop/html5 2013-1/struct.html",
+		"/C/Users/Marvin/Desktop/public_html/index.html",
+		"/C/Program Files/ATI/CIM/Reports/Report.xml",
+		"/C/Users/Marvin/Desktop/live_update_effect.html",
+		"/C/Users/Marvin/Desktop/JS_Lib_Example/js/more_elems.js",
+		"/C/Users/Marvin/Desktop/JS_Lib_Example/index.html",
+		"/C/Users/Marvin/Desktop/JS_Lib_Example/js/feeding_generation.js",
+		"/C/Users/Marvin/Desktop/svn/trunk/hermes-connector/src/main/java/net/ab4cus/hermes/bridge/impresora/AppletMain.java",
+		"/C/Users/Marvin/AppData/Roaming/Sublime Text 2/Packages/FileDiffs/FileDiffs.sublime-settings",
+		"/C/Users/Marvin/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Marvin/Desktop/correo.js",
+		"/D/Downloads/evil_dead3.srt",
+		"/C/Users/Marvin/Desktop/vpn.txt",
+		"/C/Users/Marvin/Desktop/Codes JS/xml_parse.html",
+		"/C/Users/Marvin/Desktop/Codes JS/cl_var.js",
+		"/C/Users/Marvin/Desktop/lab/pag1.html",
+		"/C/Users/Marvin/Desktop/jueves_1300-1500_19477503/pag1.html",
+		"/C/Program Files (x86)/Common Files/Java/Java Update/task.xml",
+		"/D/Games/Mass Effect/BioGame/Config/DefaultEngine.ini",
+		"/C/Users/Marvin/Desktop/lab/estilo.css",
+		"/C/Users/Marvin/Desktop/lab/menu_style.css",
+		"/C/Users/Marvin/Desktop/jueves_1300-1500_19477503/pag2.html",
+		"/C/Users/Marvin/Desktop/apache-tomcat-7.0.42/webapps/hermesBridge/webstart/bridge.jnlp",
+		"/C/Users/Marvin/Desktop/apache-tomcat-7.0.42/webapps/ROOT/TestApplet.html",
+		"/C/Users/Marvin/Desktop/lab/pag2.html",
+		"/C/Users/Marvin/Desktop/test1.csv",
+		"/C/Users/Marvin/Desktop/test2.fix",
+		"/D/Iso's/ME1 +DLC/ME.MDS"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"  +",
+			"     <div id=\"menu\">\n                <button id=\"inicio\">Inicio</button>\n                <button id=\"last\">Anterior</button>\n                <button id=\"next\">Siguiente</button>\n                <button id=\"new\">\"Nuevo\"</button>\n                <input id=\"save\" type=\"submit\" value=\"Guardar\">\n                <input id=\"delete\" type=\"submit\" value=\"Eliminar\">\n            </div>",
+			"button",
+			"vista",
+			"verde"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public_html/index.html",
+					"settings":
+					{
+						"buffer_size": 1719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								852,
+								858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public_html/js/my.js",
+					"settings":
+					{
+						"buffer_size": 3976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								862,
+								872
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"my",
+				"js/my.js"
+			],
+			[
+				"js",
+				"js/my.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

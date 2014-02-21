@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Laboratorio 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <script type="text/javascript" src="js/jquery.js"></script>
+    </head>
+    <body >
+        <div id="page">
+            <div id="menu">
+                <button id="inicio">Inicio</button>
+                <span>
+                    <button id="last">Anterior</button>
+                    <button id="next">Siguiente</button>
+                    <button id="new">Nuevo</button>
+                </span>
+            </div>
+            <div id="contenido">
+                <div id="dinamico"></div>
+                <div id="postid" class="invisible">
+                    <form id="formulario" method="POST">
+                        <table>
+                            <tr>
+                                <th>Nombre:</th>
+                                <th><input type="text" name="nombre"></th>
+                            </tr>
+                            <tr>
+                                <th>Mensaje:</th>
+                                <th><textarea name="msg"></textarea></th>
+                            </tr>
+                        </table>
+                        <span> 
+                            <input id="save" type="submit" value="Guardar">
+                            <input id="delete" type="submit" value="Eliminar">
+                            <input id="cancel" type="submit" value="Cancelar">
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/my.js"></script>
+    </body>
+</html>

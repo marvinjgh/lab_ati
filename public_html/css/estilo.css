@@ -1,0 +1,53 @@
+body {
+    margin: 0px 10px;
+    padding: 0px;
+    background: #efefef;
+    text-align: justify;
+    font: 16px Arial, Helvetica, sans-serif;
+    /*    color: #787878;*/
+}
+#page {
+    width: 600px;
+    margin: 10px auto;
+}
+.nombre{
+    font-weight: bold;
+    font-size: 18px;
+}
+.mensaje{
+    margin-left:1em;
+}
+.fecha{
+    font-size: 9px;
+}
+
+.marco{
+    border: 1px solid black ;
+}
+#menu, #contenido {
+    width: 600px;
+    display: block ;
+}
+textarea{
+    width: 98%;
+    height: 100%;
+}
+input[type="text"]{
+    width: 98%;
+}
+th:first-child{
+    width: 10%;
+}
+table{
+    width: 600px;
+}
+.invisible{
+    visibility: hidden;
+    display: none;
+}
+.alinerigth{
+    text-align: right;
+}
+span{
+    text-align: right;
+}
