@@ -20,6 +20,7 @@ function cargarPost(post) {
     $("#dinamico").addClass("invisible");
     $("#postid").removeClass("invisible");
     sel_post = post;
+
     if (post === null) {
         $("#delete").addClass("invisible");
         $("#cancel").removeClass("invisible");
@@ -29,8 +30,9 @@ function cargarPost(post) {
         $("#cancel").addClass("invisible");
     }
     form = document.getElementById("formulario"); //$("#formulario");
+    form.reset();
     form.nombre.value = post.nombre;
-    form.msg.value = post.mensaje;
+    form.mensaje.value = post.mensaje;
 }
 function error(datos) {
     var myroot = $("#dinamico"); //document.getElementById("contenido");
@@ -40,6 +42,7 @@ function error(datos) {
     myroot.append(html);
 }
 $("#inicio").click(function(event) {
+    pagina = 0;
     $.ajax({url: "http://www.ciens.ucv.ve/post",
         type: "GET",
         data: 'page=0',
@@ -51,7 +54,6 @@ $("#inicio").click(function(event) {
         }
     }
     );
-    pagina = 0;
 });
 $("#next").click(function(event) {
     pagina++;
@@ -101,23 +103,33 @@ $("form").on("submit", function(event) {
     console.log($(this).serialize());
     console.log(val);
     if (val === "save") {
-        if (true) {//aca el validar
-            if (sel_post === null) {
-                alert("nuevo");
-            } else {
-                if (sel_post.nombre === this.nombre.value && sel_post.mensaje === this.msg.value) {
-                    alert("no modificado");
-                } else if (sel_post.nombre !== this.nombre.value && sel_post.mensaje !== this.msg.value) {
-                    alert("modificado todo");
-                }else{
-                    alert("modificado uno de los elementos");
+
+        if (sel_post === null) {
+            alert("nuevo");
+            $.ajax({url: "http://www.ciens.ucv.ve/post",
+                type: "POST",
+                data: "",
+                        statusCode: {
+                    400: error,
+                    404: error,
+                    201: cargarPagina,
+                    500: error
                 }
+            }
+            );
+        } else {
+            if (sel_post.nombre === this.nombre.value && sel_post.mensaje === this.mensaje.value) {
+                alert("no modificado");
+            } else if (sel_post.nombre !== this.nombre.value && sel_post.mensaje !== this.mensaje.value) {
+                alert("modificado todo");
+            } else {
+                alert("modificado uno de los elementos");
             }
         }
     } else if (val === "delete") {
         alert("eliminar");
     } else {
-        alert("cancela");
+        pagina = 0;
         $.ajax({url: "http://www.ciens.ucv.ve/post",
             type: "GET",
             data: 'page=' + pagina,
@@ -141,10 +153,34 @@ function quitarMarco(event) {
 
 $("#new").click(function() {
     sel_post = null;
-    cargarPost(null)
+    cargarPost(null);
 });
 $(document).ready(function() {
-    $("#formulario").addClass("valalinerigth");
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                if (e.target.value === "")
+                    e.target.setCustomValidity("No puede ser vacio");
+                else
+                    e.target.setCustomValidity("Solo acepta letras");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+    document.getElementsByTagName("textarea")[0].oninvalid = function(e) {
+        e.target.setCustomValidity("");
+        if (!e.target.validity.valid) {
+            e.target.setCustomValidity("No puede ser vacio");
+        }
+    };
+    document.getElementsByTagName("textarea")[0].oninput = function(e) {
+        e.target.setCustomValidity("");
+    };
+
 });
 $("form input[type=submit]").click(function() {
     $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
