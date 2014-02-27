@@ -16,33 +16,33 @@ and open the template in the editor.
         <div id="page">
             <div id="menu">
                 <button id="inicio">Inicio</button>
-                <span>
-                    <button id="last">Anterior</button>
-                    <button id="next">Siguiente</button>
-                    <button id="new">Nuevo</button>
-                </span>
+                <button id="new">Nuevo</button>
             </div>
             <div id="contenido">
-                <div id="dinamico"></div>
+                <div id="dinamico">
+                    Esta es mi pagina para los post
+                </div>
                 <div id="postid" class="invisible">
                     <form id="formulario" method="POST">
                         <table>
                             <tr>
                                 <th>Nombre:</th>
-                                <th><input type="text" name="nombre" required pattern="[A-Za-z]+" ></th>
+                                <th><input type="text" name="nombre" required pattern="[a-zA-Z]{3,}"></th>
                             </tr>
                             <tr>
                                 <th>Mensaje:</th>
                                 <th><textarea name="mensaje" required></textarea></th>
                             </tr>
                         </table>
-                        <span> 
-                            <input id="save" type="submit" value="Guardar">
-                            <input id="delete" type="submit" value="Eliminar">
-                            <input id="cancel" type="submit" value="Cancelar">
-                        </span>
                     </form>
+                    <input id="save" type="submit" value="Guardar" class="mybutton">
+                    <input id="delete" type="submit" value="Eliminar" class="mybutton">
+                    <button id="cancel" >Cancelar</button>
                 </div>
+            </div>
+            <div id="paginacion">
+                <button id="last"><</button><span id="pagina"></span>
+                <button id="next">></button>
             </div>
         </div>
 
