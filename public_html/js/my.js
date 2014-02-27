@@ -71,7 +71,7 @@ $("#next").click(function(event) {
     );
 });
 $("#last").click(function(event) {
-    if (pagina > 0)
+    if (pagina > 1)
         pagina--;
     $("#pagina").html(pagina);
     $.ajax({url: "http://www.ciens.ucv.ve/post",
@@ -98,8 +98,53 @@ function postclick(evento) {
     }
     );
 }
+$("#save").click(function(event) {
+    form = $("form");
+    if (sel_post === null) {
+        $.ajax({url: "http://www.ciens.ucv.ve/post",
+            type: "POST",
+            data: form.serialize(),
+            statusCode: {
+                400: error,
+                404: error,
+                201: cargarInicio,
+                500: error
+            }
+        }
+        );
+    } else {
+        if (sel_post.nombre === this.nombre.value && sel_post.mensaje === this.mensaje.value) {
+            cargarInicio();
+        } else if (sel_post.nombre !== this.nombre.value && sel_post.mensaje !== this.mensaje.value) {
+            $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
+                type: "PUT",
+                data: form.serialize(),
+                statusCode: {
+                    400: error,
+                    404: error,
+                    201: cargarInicio,
+                    500: error
+                }
+            }
+            );
+        } else {
+            alert("modificado uno de los elementos");
+            $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
+                type: "PATCH",
+                data: (sel_post.nombre !== this.nombre.value) ? "nombre=" + this.nombre.value : "mensaje=" + this.mensaje.value,
+                statusCode: {
+                    400: error,
+                    404: error,
+                    200: cargarInicio,
+                    500: error
+                }
+            }
+            );
+        }
+    }
+});
 function cargarInicio() {
-    pagina = 0;
+    pagina = 1;
     $("#pagina").html(pagina);
     $.ajax({url: "http://www.ciens.ucv.ve/post",
         type: "GET",
@@ -113,53 +158,9 @@ function cargarInicio() {
     }
     );
 }
-$("form").on("submit", function(event) {
-    event.preventDefault();
-    var val = $("input[type=submit][clicked=true]").attr("id");
-    if (val === "save") {
-        if (sel_post === null) {
-            $.ajax({url: "http://www.ciens.ucv.ve/post",
-                type: "POST",
-                data: $(this).serialize(),
-                statusCode: {
-                    400: error,
-                    404: error,
-                    201: cargarInicio,
-                    500: error
-                }
-            }
-            );
-        } else {
-            if (sel_post.nombre === this.nombre.value && sel_post.mensaje === this.mensaje.value) {
-                cargarInicio();
-            } else if (sel_post.nombre !== this.nombre.value && sel_post.mensaje !== this.mensaje.value) {
-                $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
-                    type: "PUT",
-                    data: $(this).serialize(),
-                    statusCode: {
-                        400: error,
-                        404: error,
-                        201: cargarInicio,
-                        500: error
-                    }
-                }
-                );
-            } else {
-                alert("modificado uno de los elementos");
-                $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
-                    type: "PATCH",
-                    data: (sel_post.nombre !== this.nombre.value) ? "nombre=" + this.nombre.value : "mensaje=" + this.mensaje.value,
-                    statusCode: {
-                        400: error,
-                        404: error,
-                        200: cargarInicio,
-                        500: error
-                    }
-                }
-                );
-            }
-        }
-    } else {
+$("#delete").click(function(event) {
+    form = $("form");
+    if (sel_post !== null){
         $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
             type: "DELETE",
             statusCode: {
@@ -170,7 +171,8 @@ $("form").on("submit", function(event) {
             }
         }
         );
-    }
+    }else
+        
 });
 function colocarMarco(event) {
     $(event.currentTarget).addClass("marco");
@@ -214,8 +216,4 @@ $(document).ready(function() {
         e.target.setCustomValidity("");
     };
     cargarInicio();
-});
-$("form input[type=submit]").click(function() {
-    $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
-    $(this).attr("clicked", "true");
 });
