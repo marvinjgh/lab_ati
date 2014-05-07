@@ -2,6 +2,7 @@ var pagina = 0;
 var sel_post = null;
 function cargarPagina(datos) {
     $("#dinamico").removeClass("invisible");
+    $("#paginacion").removeClass("invisible")
     $("#postid").addClass("invisible");
     myroot = $("#dinamico");
     myroot.html('');
@@ -19,6 +20,7 @@ function cargarPagina(datos) {
 function cargarPost(post) {
     $("#dinamico").addClass("invisible");
     $("#postid").removeClass("invisible");
+    $("#paginacion").addClass("invisible")
     sel_post = post;
 
     if (post === null) {
@@ -42,7 +44,7 @@ function error(datos) {
     myroot.append(html);
 }
 $("#inicio").click(function(event) {
-    pagina = 0;
+    pagina = 1;
     $.ajax({url: "http://www.ciens.ucv.ve/post",
         type: "GET",
         data: 'page=0',
@@ -113,9 +115,9 @@ $("#save").click(function(event) {
         }
         );
     } else {
-        if (sel_post.nombre === this.nombre.value && sel_post.mensaje === this.mensaje.value) {
+        if (sel_post.nombre === form[0].nombre.value && sel_post.mensaje === form[0].mensaje.value) {
             cargarInicio();
-        } else if (sel_post.nombre !== this.nombre.value && sel_post.mensaje !== this.mensaje.value) {
+        } else if (sel_post.nombre !== form[0].nombre.value && sel_post.mensaje !== form[0].mensaje.value) {
             $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
                 type: "PUT",
                 data: form.serialize(),
@@ -128,10 +130,10 @@ $("#save").click(function(event) {
             }
             );
         } else {
-            alert("modificado uno de los elementos");
+            //alert("modificado uno de los elementos");
             $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
                 type: "PATCH",
-                data: (sel_post.nombre !== this.nombre.value) ? "nombre=" + this.nombre.value : "mensaje=" + this.mensaje.value,
+                data: (sel_post.nombre !== form[0].nombre.value) ? "nombre=" + form[0].nombre.value : "mensaje=" + form[0].mensaje.value,
                 statusCode: {
                     400: error,
                     404: error,
@@ -160,7 +162,7 @@ function cargarInicio() {
 }
 $("#delete").click(function(event) {
     form = $("form");
-    if (sel_post !== null){
+    if (sel_post !== null) {
         $.ajax({url: "http://www.ciens.ucv.ve" + sel_post.id,
             type: "DELETE",
             statusCode: {
@@ -171,8 +173,7 @@ $("#delete").click(function(event) {
             }
         }
         );
-    }else
-        
+    }
 });
 function colocarMarco(event) {
     $(event.currentTarget).addClass("marco");
